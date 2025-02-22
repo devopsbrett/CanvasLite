@@ -1,80 +1,181 @@
+/* CanvasEditor.css */
 .editor-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 20px;
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .toolbar {
   display: flex;
   gap: 10px;
-  margin-bottom: 10px;
-  position: relative;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  flex-wrap: wrap;
 }
 
-button {
-  padding: 10px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 14px;
+.toolbar button {
   display: flex;
   align-items: center;
   gap: 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-button:hover {
-  background-color: #0056b3;
+.toolbar button:hover {
+  background-color: #e0e0e0;
 }
 
-.shape-container {
+.canvas-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.color-controls {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.shape-container,
+.sticker-container {
   position: relative;
+  display: inline-block;
 }
 
-.shape-button {
-  position: relative;
-  z-index: 2;
-}
-
-.shape-dropdown {
+.shape-dropdown,
+.sticker-dropdown {
   position: absolute;
   top: 100%;
   left: 0;
   background: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  border-radius: 5px;
-  z-index: 10;
-  width: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.shape-dropdown button {
-  background: none;
-  border: none;
-  font-size: 18px;
+.shape-dropdown {
+  display: flex;
+  gap: 8px;
+}
+
+.sticker-dropdown {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  min-width: 400px;
+}
+
+.sticker-item {
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   cursor: pointer;
-  color: black;
-}
-
-.shape-dropdown button:hover {
-  color: #007bff;
-}
-
-.canvas-wrapper {
-  position: relative;
-  border: 2px solid #ddd;
-  padding: 10px;
-  background: white;
-}
-
-.color-controls {
-  margin-top: 10px;
+  background: none;
+  transition: all 0.2s;
   display: flex;
-  gap: 10px;
   align-items: center;
+  justify-content: center;
+}
+.sticker-item:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.sticker-item:active {
+  transform: scale(0.95);
+}
+
+.color-controls label {
+  font-weight: 500;
+}
+
+.color-controls input[type="color"] {
+  width: 50px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Scrollbar styling for sticker dropdown */
+.sticker-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sticker-dropdown::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.sticker-dropdown::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.sticker-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sticker-dropdown {
+    grid-template-columns: repeat(6, 1fr);
+    min-width: 300px;
+  }
+
+  .color-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Animation for dropdowns */
+.shape-dropdown,
+.sticker-dropdown {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Active state for toolbar buttons */
+.toolbar button.active {
+  background-color: #e0e0e0;
+}
+
+/* Hover effects for canvas objects */
+canvas {
+  transition: all 0.3s ease;
+}
+
+canvas:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

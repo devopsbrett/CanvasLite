@@ -25,7 +25,6 @@ const HomePage = () => {
           <div className="category"><FaShapes /> Logos</div>
           <div className="category"><FaPalette /> Social Media</div>
           <div className="category"><FaStore /> Business Cards</div>
-          <div className="category"><FaCrown /> Premium Templates</div>
         </div>
 
         {/* Recent Designs */}
