@@ -1,14 +1,12 @@
 import React from "react";
 import Sidebar from "./components/Sidebar";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div style={{ display: "flex" }}>
       <Sidebar />
-      <div style={{ marginLeft: "250px", padding: "20px", width: "100%" }}>
-        <h1>Welcome to CanvasLite</h1>
-        <p>Start designing your graphics here!</p>
-      </div>
+      <Home />
     </div>
   );
 }
