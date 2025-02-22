@@ -1,0 +1,46 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #f8f9fc;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2d89ff;
+    margin-bottom: 20px;
+  }
+  
+  .create-btn {
+    background: #2d89ff;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .create-btn:hover {
+    background: #1b5fdc;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  ul li:hover {
+    color: #2d89ff;
+  }
+  
